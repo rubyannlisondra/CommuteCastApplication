@@ -15,7 +15,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
        switch(position) {
            case 0: return new Home();
-           case 1: return new Favorite();
+           case 1: return new Weather();
            case 2: return new CreateAlarm();
            case 3: return new Profile();
            default: return new Home();

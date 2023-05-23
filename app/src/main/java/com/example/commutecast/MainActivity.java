@@ -2,6 +2,7 @@ package com.example.commutecast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
@@ -9,7 +10,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Switch;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -20,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     ViewPager2 viewPager2;
     ViewPagerAdapter viewPagerAdapter;
     BottomNavigationView bottomNavigationView;
+    Switch switch_id;
 
     FirebaseAuth fAuth;
     @Override
@@ -29,10 +33,22 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        switch_id = findViewById(R.id.switch_id);
         bottomNavigationView = findViewById(R.id.navBtn);
         viewPager2 = findViewById(R.id.viewPager);
         viewPagerAdapter = new ViewPagerAdapter(this);
         viewPager2.setAdapter(viewPagerAdapter);
+
+        switch_id.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(switch_id.isChecked()) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+            }
+        });
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")
@@ -78,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
                 super.onPageSelected(position);
             }
         });
-
 
         fAuth = FirebaseAuth.getInstance();
         /*ImageButton logout = findViewById(R.id.logout);

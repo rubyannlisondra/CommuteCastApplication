@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#1a1a1a"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etCity"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="Enter City Name"
+        android:inputType="textPersonName"
+        android:textColor="#d4d4d4"
+        android:textColorHint="#d4d4d4" />
+
+    <EditText
+        android:id="@+id/etCountry"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCity"
+        android:layout_marginTop="7dp"
+        android:ems="10"
+        android:hint="Enter Country Code (Optional)"
+        android:inputType="textPersonName"
+        android:backgroundTint="#d4d4d4"
+        android:textColorHint="#d4d4d4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGet"
+        android:layout_width="109dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="18dp"
+        android:layout_toEndOf="@+id/etCountry"
+        android:background="#d4d4d4"
+        android:onClick="getWeatherDetails"
+        android:textSize="20sp"
+        android:text="Get"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tvResult1"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/etCountry"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:textColor="#d4d4d4"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvResult2"
+        android:layout_width="237dp"
+        android:layout_height="115dp"
+        android:layout_below="@+id/tvResult1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="#d4d4d4"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvResult11"
+        android:layout_width="309dp"
+        android:layout_height="76dp"
+        android:layout_below="@+id/tvResult2"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="13dp"
+        android:gravity="center"
+        android:textColor="#d4d4d4"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="160dp"
+        android:layout_height="137dp"
+        android:layout_below="@+id/tvResult11"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="34dp"
+        app:cardBackgroundColor="#D4D4D4"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvResult3"
+                android:layout_width="162dp"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:textColor="#1a1a1a"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvResult8"
+                android:layout_width="160dp"
+                android:layout_height="68dp"
+                android:gravity="center"
+                android:textColor="#1a1a1a"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="160dp"
+        android:layout_height="138dp"
+        android:layout_below="@+id/tvResult11"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="14dp"
+        app:cardBackgroundColor="#D4D4D4"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvResult4"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:textColor="#1a1a1a"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvResult9"
+                android:layout_width="159dp"
+                android:layout_height="69dp"
+                android:gravity="center"
+                android:textColor="#1a1a1a"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="51dp"
+        android:backgroundTint="#d4d4d4"
+        android:text="Farenheit" />
+
+    <Button
+        android:id="@+id/btnGoToList"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="51dp"
+        android:backgroundTint="#d4d4d4"
+        android:text="Podcasts" />
+
+</RelativeLayout>

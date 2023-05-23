@@ -17,21 +17,6 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
-    <ImageButton
-        android:id="@+id/none"
-        android:layout_width="49dp"
-        android:layout_height="58dp"
-        android:backgroundTint="#1A1A1A"
-        android:contentDescription="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.839"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.461"
-        app:srcCompat="@drawable/baseline_menu_24"
-        app:tint="#1A1A1A" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navBtn"
         android:layout_width="match_parent"
@@ -43,5 +28,10 @@
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_nav"
         tools:ignore="MissingConstraints" />
+
+    <Switch
+        android:layout_height="32dp"
+        android:layout_width="wrap_content"
+        android:id="@+id/switch_id"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
