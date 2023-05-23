@@ -8,6 +8,27 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="drawer">
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/header"
+            app:menu="@menu/main_menu" />
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
@@ -17,6 +38,25 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
+<<<<<<< HEAD
+=======
+    <ImageButton
+        android:id="@+id/none"
+        android:layout_width="49dp"
+        android:layout_height="58dp"
+        android:backgroundTint="#1A1A1A"
+        android:contentDescription="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.839"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.461"
+        app:srcCompat="@drawable/baseline_menu_24"
+        android:visibility="invisible"
+        app:tint="#1A1A1A" />
+
+>>>>>>> 3775744ecf6cc0004eecd7fb5db95282cec9d9ef
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navBtn"
         android:layout_width="match_parent"

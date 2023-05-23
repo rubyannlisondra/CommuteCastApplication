@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A1A"
+    tools:context=".AddingReminder">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#60D2D2D2"
+        android:fontFamily="@font/dm_sans"
+        android:paddingStart="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Add a Reminder"
+        app:titleTextColor="#D2D2D2" />
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00D2D2D2"
+        android:contentDescription="back"
+        android:fontFamily="@font/dm_sans"
+        android:minHeight="48dp"
+        android:src="@drawable/baseline_arrow_back_24"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/Toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Toolbar"
+        app:tint="#D4D4D4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/selectLocBtn"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="#D2D2D2"
+        android:ems="10"
+        android:fontFamily="@font/dm_sans"
+        android:padding="2dp"
+        android:text="Open Location"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLocation"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dm_sans"
+        android:padding="2dp"
+        android:text="Enter the Reminder's Name"
+        android:textColor="#D2D2D2"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Toolbar"
+        app:layout_constraintVertical_bias="0.169" />
+
+    <TextView
+        android:id="@+id/textViewLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/dm_sans"
+        android:padding="2dp"
+        android:text="Location"
+        android:textColor="#D2D2D2"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.211"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tName" />
+
+    <ImageButton
+        android:id="@+id/tvLocation"
+        android:layout_width="49dp"
+        android:layout_height="58dp"
+        android:backgroundTint="#00D2D2D2"
+        android:contentDescription="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tName"
+        app:layout_constraintVertical_bias="0.033"
+        app:srcCompat="@drawable/baseline_location_on_24" />
+
+    <CheckBox
+        android:id="@+id/checkbox_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.871"
+        app:layout_constraintStart_toEndOf="@+id/textViewLocationAlarm"
+        app:layout_constraintTop_toBottomOf="@+id/selectLocBtn" />
+
+    <ImageButton
+        android:id="@+id/imageBtnAlarm"
+        android:layout_width="49dp"
+        android:layout_height="58dp"
+        android:backgroundTint="#00D2D2D2"
+        android:contentDescription="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectLocBtn"
+        app:layout_constraintVertical_bias="0.032"
+        app:srcCompat="@drawable/baseline_add_alert_24"
+        app:tint="#D2D2D2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/createReminderBtn"
+        android:layout_width="279dp"
+        android:layout_height="58dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="#D2D2D2"
+        android:ems="10"
+        android:fontFamily="@font/dm_sans"
+        android:padding="2dp"
+        android:text="Create Reminder"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectLocBtn"
+        app:layout_constraintVertical_bias="0.303" />
+
+    <TextView
+        android:id="@+id/textViewLocationAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dm_sans"
+        android:padding="2dp"
+        android:text="Alarm"
+        android:textColor="#D2D2D2"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectLocBtn"
+        app:layout_constraintVertical_bias="0.073" />
+
+    <EditText
+        android:id="@+id/tName"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="#60D2D2D2"
+        android:elegantTextHeight="false"
+        android:ems="10"
+        android:fontFamily="@font/dm_sans"
+        android:hint="name"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textAlignment="textStart"
+        android:textColor="#D2D2D2"
+        android:textColorHint="#00D2D2D2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

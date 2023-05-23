@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,19 +15,23 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="106dp"
-        android:layout_marginEnd="97dp"
-        android:layout_marginBottom="445dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061"
         app:srcCompat="@drawable/accessloc" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="278dp"
-        android:layout_height="64dp"
+        android:layout_width="255dp"
+        android:layout_height="79dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
+<<<<<<< HEAD
         android:layout_marginStart="61dp"
         android:layout_marginEnd="71dp"
         android:layout_marginBottom="230dp"
@@ -69,25 +73,83 @@
         android:text="SKIP"
         android:textSize="18sp"
         android:textStyle="bold" />
+=======
+        android:layout_marginBottom="256dp"
+        android:fontFamily="sans-serif"
+        android:text="It will make the address search more precise. This will help you save time and speed up the process."
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGeoLocation" />
+>>>>>>> 3775744ecf6cc0004eecd7fb5db95282cec9d9ef
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/continueBtn"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_alignParentStart="false"
         android:layout_alignParentEnd="false"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="71dp"
+        android:layout_marginBottom="120dp"
         android:backgroundTint="#D2D2D2"
         android:ems="10"
         android:padding="2dp"
         android:text="CONTINUE"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skipBtn"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tvGeoLocation"
+        android:layout_width="247dp"
+        android:layout_height="66dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="328dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="Please allow access to geolocation"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accloc"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/skipBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="192dp"
+        android:backgroundTint="#D2D2D2"
+        android:ems="10"
+        android:fontFamily="@font/dm_sans"
+        android:padding="2dp"
+        android:text="SKIP"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="1.0" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

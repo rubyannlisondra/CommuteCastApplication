@@ -13,6 +13,7 @@
         <!-- Customize your theme here. -->
     </style>
 
+<<<<<<< HEAD
     <style name="Theme.CommuteCast.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
         <!-- Radius of the outer bound of widgets to make the rounded corners -->
         <item name="appWidgetRadius">16dp</item>
@@ -27,4 +28,6 @@
         <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
         <item name="appWidgetPadding">16dp</item>
     </style>
+=======
+>>>>>>> 3775744ecf6cc0004eecd7fb5db95282cec9d9ef
 </resources>

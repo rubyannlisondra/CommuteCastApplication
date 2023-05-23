@@ -1,8 +1,13 @@
 package com.example.commutecast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+<<<<<<< HEAD
 import androidx.appcompat.app.AppCompatDelegate;
+=======
+import androidx.drawerlayout.widget.DrawerLayout;
+>>>>>>> 3775744ecf6cc0004eecd7fb5db95282cec9d9ef
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
@@ -16,6 +21,7 @@ import android.widget.Switch;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     Switch switch_id;
 
-    FirebaseAuth fAuth;
+    private Home homeFragment;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,12 +41,18 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+<<<<<<< HEAD
         switch_id = findViewById(R.id.switch_id);
+=======
+        homeFragment = new Home();
+
+>>>>>>> 3775744ecf6cc0004eecd7fb5db95282cec9d9ef
         bottomNavigationView = findViewById(R.id.navBtn);
         viewPager2 = findViewById(R.id.viewPager);
         viewPagerAdapter = new ViewPagerAdapter(this);
         viewPager2.setAdapter(viewPagerAdapter);
 
+<<<<<<< HEAD
         switch_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+=======
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, homeFragment)
+                .commit();
+
+>>>>>>> 3775744ecf6cc0004eecd7fb5db95282cec9d9ef
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")
@@ -94,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 super.onPageSelected(position);
             }
         });
+<<<<<<< HEAD
 
         fAuth = FirebaseAuth.getInstance();
         /*ImageButton logout = findViewById(R.id.logout);
@@ -105,5 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),Login.class));
             }
         });*/
+=======
+>>>>>>> 3775744ecf6cc0004eecd7fb5db95282cec9d9ef
     }
 }

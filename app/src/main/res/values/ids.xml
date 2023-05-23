@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="checkpoint_lat_tv" type="id" />
+    <item name="checkpoint_long_tv" type="id" />
+    <item name="checkpoint_name_tv" type="id" />
+    <item name="dialogbox_done_btn" type="id" />
+    <item name="dialogbox_cancel_btn" type="id" />
+</resources>

@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +22,7 @@ public class Login extends AppCompatActivity {
     EditText mEmail, mPassword;
     Button mLoginBtn;
     TextView mCreateBtn;
-    ProgressBar progressBar;
+    Button mSignBtn;
 
     FirebaseAuth fAuth;
 
@@ -36,7 +35,7 @@ public class Login extends AppCompatActivity {
 
         mEmail = findViewById(R.id.emailAddress);
         mPassword = findViewById(R.id.tPassword);
-        progressBar = findViewById(R.id.prgBar);
+
         mLoginBtn = findViewById(R.id.loginBtn);
         mCreateBtn = findViewById(R.id.buttonSignIn);
 
@@ -67,9 +66,9 @@ public class Login extends AppCompatActivity {
                     mPassword.setError("Password must be at least 8 characters");
                     return;
                 }
-                progressBar.setVisibility(View.VISIBLE);
 
-                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
@@ -77,13 +76,25 @@ public class Login extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Error" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(getApplicationContext(), task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });
             }
         });
+        mSignBtn = findViewById(R.id.buttonSignUp);
 
+        mSignBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSignUp();
+            }
+        });
+    }
+
+    public void openSignUp() {
+        Intent intent = new Intent(this, SignUp.class);
+        startActivity(intent);
     }
 }

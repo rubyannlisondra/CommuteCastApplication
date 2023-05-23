@@ -40,7 +40,6 @@ public class SignUp extends AppCompatActivity {
     EditText name, emailAdd, password;
     Button suBtn;
     TextView lBtn;
-    ProgressBar progressBar;
 
     FirebaseFirestore fstore;
     String userID;
@@ -59,15 +58,14 @@ public class SignUp extends AppCompatActivity {
         password = findViewById(R.id.tPassword);
         suBtn = findViewById(R.id.signupBtn);
         lBtn = findViewById(R.id.loginBtn);
-        progressBar = findViewById(R.id.prgBar);
 
         fAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
 
-        if(fAuth.getCurrentUser() != null) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            finish();
-        }
+        /*if(fAuth.getCurrentUser() != null) {
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        finish();
+        }*/
 
         lBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +93,6 @@ public class SignUp extends AppCompatActivity {
                     password.setError("Password must be at least 8 characters");
                     return;
                 }
-                progressBar.setVisibility(View.VISIBLE);
 
                 fAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -136,7 +133,6 @@ public class SignUp extends AppCompatActivity {
                         }
                         else {
                             Toast.makeText(SignUp.this, "Error" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
                         }
                     }
                 });

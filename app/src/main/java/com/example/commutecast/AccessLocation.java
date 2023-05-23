@@ -11,6 +11,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -35,13 +36,10 @@ import java.util.Map;
 
 public class AccessLocation extends AppCompatActivity {
 
-    private MaterialButton multiplePermissionBtn;
-    private TextView geoLocation;
+    private Button mSkipBtn;
+    private MaterialButton singlePermissionBtn;
+    private TextView resultTv;
     private static final String TAG = "PERMISSION_TAG";
-
-    /*Button button_location;
-    TextView textView_location;
-    LocationManager locationManager;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,126 +48,47 @@ public class AccessLocation extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        /*textView_location = findViewById(R.id.tvGeoLocation);
-        button_location = findViewById(R.id.continueBtn);
+        singlePermissionBtn = findViewById(R.id.continueBtn);
+        resultTv = findViewById(R.id.tvGeoLocation);
+        mSkipBtn = findViewById(R.id.skipBtn);
 
-        if(ContextCompat.checkSelfPermission(AccessLocation.this, Manifest.permission.ACCESS_FINE_LOCATION)
-        != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(AccessLocation.this, new String[] {
-                    Manifest.permission.ACCESS_FINE_LOCATION
-            },100);
-        }
-
-
-        button_location.setOnClickListener(new View.OnClickListener() {
+        singlePermissionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getLocation();
+                String permission = Manifest.permission.ACCESS_FINE_LOCATION;
+                permissionLauncherSingle.launch(permission);
             }
         });
-    }
 
-    @SuppressLint("MissingPermission")
-    private void getLocation() {
-
-        try {
-            locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, AccessLocation.this);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, AccessLocation.this);*/
-
-         multiplePermissionBtn = findViewById(R.id.continueBtn);
-        geoLocation = findViewById(R.id.tvGeoLocation);
-
-
-        multiplePermissionBtn.setOnClickListener(new View.OnClickListener() {
+        mSkipBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String[] permission = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA};
-
-            permissionLauncherMultiple.launch(permission);
+            public void onClick(View view) {
+                openHome();
             }
         });
     }
 
-    /*private ActivityResultLauncher<String> permissionLauncherSingle = registerForActivityResult(
-            new ActivityResultContracts.RequestPermission(),
+    private ActivityResultLauncher<String> permissionLauncherSingle = registerForActivityResult(new ActivityResultContracts.RequestPermission(),
             new ActivityResultCallback<Boolean>() {
                 @Override
                 public void onActivityResult(Boolean isGranted) {
                     Log.d(TAG, "onActivityResult: isGranted: " + isGranted);
-
                     if(isGranted) {
-
+                        singlePermissionGranted();
                     }
                     else {
                         Log.d(TAG, "onActivityResult: Permission denied...");
                         Toast.makeText(AccessLocation.this, "Permission denied...", Toast.LENGTH_SHORT).show();
                     }
                 }
-            }
-    );*/
+            });
 
-    private ActivityResultLauncher<String[]> permissionLauncherMultiple = registerForActivityResult(
-            new ActivityResultContracts.RequestMultiplePermissions(),
-            new ActivityResultCallback<Map<String, Boolean>>() {
-                @Override
-                public void onActivityResult(Map<String, Boolean> result) {
-
-                    boolean allAreGranted = true;
-                    for(Boolean isGranted : result.values()) {
-                        Log.d(TAG, "onActivityResult: isGranted: " + isGranted);
-                        allAreGranted = allAreGranted && isGranted;
-                    }
-
-                    if(allAreGranted) {
-                        multiplePermissionsGranted();
-                    }
-                    else {
-                        Log.d(TAG, "onActivityResult: All or some permissions denied...");
-                        Toast.makeText(AccessLocation.this, "All are some permissions denied...", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-    );
-
-    /*private void singlePermissionGranted() {
-        geoLocation.setText("Single permission granted. You can do your tasks...");
-    }*/
-    private void multiplePermissionsGranted() {
-        geoLocation.setText("All Permissions granted. You can do your tasks...");
+    private void singlePermissionGranted() {
+        resultTv.setText("Single Permission granted. You can do your tasks...");
     }
 
-    /*@Override
-    public void onLocationChanged(@NonNull Location location) {
-        Toast.makeText(this, ""+ location.getLatitude()+","+ location.getLongitude(), Toast.LENGTH_SHORT).show();
-    try {
-        Geocoder geocoder = new Geocoder(AccessLocation.this, Locale.getDefault());
-        List<Address> addresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
-        String address = addresses.get(0).getAddressLine(0);
-
-        textView_location.setText(address);
-    } catch (Exception e) {
-        e.printStackTrace();
+    public void openHome() {
+        Intent intent1 = new Intent(this, Login.class);
+        startActivity(intent1);
     }
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-        LocationListener.super.onStatusChanged(provider, status, extras);
-    }
-
-    @Override
-    public void onProviderEnabled(@NonNull String provider) {
-        LocationListener.super.onProviderEnabled(provider);
-    }
-
-    @Override
-    public void onProviderDisabled(@NonNull String provider) {
-        LocationListener.super.onProviderDisabled(provider);
-    }*/
 }
